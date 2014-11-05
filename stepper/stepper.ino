@@ -57,8 +57,13 @@ void loop() {
       Serial.println(out);
     }
     else if(command=="CTS"){
-      String out = String(delayOfMotor) + "@";
-      Serial.println(out);
+      if(delayOfMotor==0){
+          Serial.println("0@");
+        }
+      else{
+          String out = String(delayOfMotor) + "@";
+          Serial.println(out);
+        }
     }
     else{
       Serial.println("SYSTEM: Serial input error");
