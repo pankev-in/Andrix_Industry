@@ -1,8 +1,17 @@
+/*
+  Name:            Stepper Motor Controller (Serial Communication) - 3.5A low power version
+  Autor:           Alexander Wurm, Kevin Pan
+  Discribtion:     Stepper Motor Controller (Serial Communication) - 3.5A low power version
+  Last Update:     XX.XX.XXXX
+  Contact:         kpan@student.tgm.ac.at, awurm@student.tgm.ac.at
+*/
+
 #define Maximum_steps 32250	          //Maximum steps
 #define Axis_length 4950			        //Maximum Length
 #define Touch_sensor_pin 7            //Touch Sensor(init) pin
 #define Clock_pin	9                   //Clock(Tacks) CLK+ pin
 #define Direction_pin	8               //Direction CW+ pin
+#define Enable_pin 10
 #define Clock_impuls 100 			        //Microsecond
 
 int Current_position = 0;			        //Milimeter
@@ -32,10 +41,12 @@ void loop() {
     Serial.print("Input Command:\t");Serial.println(command);
     if(command=="ENA"){
       Serial.println("motor enabled");
+      digitalWrite(Enable_pin, LOW);
       motor_enable=true;
     }
     else if(command=="DIS"){
       Serial.println("motor disabled");
+      digitalWrite(Enable_pin,HIGH);
       motor_enable=false;
     }
     else if(command=="RES"){
@@ -93,12 +104,15 @@ void serialEvent() {
 void _init(){                   //Initailizing Pin setups
     inputString.reserve(32);
     motor_enable=true;
+    pinMode(Enable_pin,OUTPUT);
     pinMode(Direction_pin, OUTPUT);
     pinMode(Clock_pin, OUTPUT);
     pinMode(Touch_sensor_pin,INPUT);
+    digitalWrite(Enable_pin,LOW);
     digitalWrite(Direction_pin, LOW);
     digitalWrite(Clock_pin, LOW);
     reset();
+    digitalWrite(Enable_pin,HIGH);
     motor_enable=false;
 }
 
