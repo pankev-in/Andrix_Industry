@@ -41,11 +41,11 @@ void _init(){                   //Initailizing Pin setups
     motor_enable=true;
     pinMode(Motor_Enable_pin,OUTPUT);
     pinMode(Motor_Direction_pin, OUTPUT);
-    pinMode(Motor_Motor_Clock_pin, OUTPUT);
+    pinMode(Motor_Clock_pin, OUTPUT);
     pinMode(Sensor_Touch_Sensor_Pin,INPUT);
     digitalWrite(Motor_Enable_pin,LOW);
     digitalWrite(Motor_Direction_pin, LOW);
-    digitalWrite(Motor_Motor_Clock_pin, LOW);
+    digitalWrite(Motor_Clock_pin, LOW);
     reset();
     digitalWrite(Motor_Enable_pin,HIGH);
     motor_enable=false;
@@ -121,9 +121,9 @@ void reset(){                   //RESET THE POSITION BACK TO 0 USING SENSOR
   if(motor_enable==true){
     digitalWrite(Motor_Direction_pin, HIGH);
     while(!digitalRead(Sensor_Touch_Sensor_Pin)){
-      digitalWrite(Motor_Motor_Clock_pin, HIGH);
+      digitalWrite(Motor_Clock_pin, HIGH);
       delayMicroseconds(Clock_impuls);
-      digitalWrite(Motor_Motor_Clock_pin, LOW);
+      digitalWrite(Motor_Clock_pin, LOW);
       delayMicroseconds(Clock_impuls);
       delay(delayOfMotor);
     }
@@ -156,7 +156,7 @@ void goToPosition(int x_position){
     if(x_position==0){
       int k = (int)(Current_position/Step_resolution);
       for(int i=1;i<=k; i++){
-        digitalWrite(Motor_Motor_Clock_pin, HIGH);
+        digitalWrite(Motor_Clock_pin, HIGH);
         delayMicroseconds(Clock_impuls);
         digitalWrite(Motor_Clock_pin, LOW);
         delayMicroseconds(Clock_impuls);
