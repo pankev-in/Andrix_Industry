@@ -1,0 +1,87 @@
+Androix Industry: Industrie Motor / Robotic Steuerung
+  Autor: Kevin Pan
+  Date: 09.2014 - 11.2014
+
+###############################################################################
+Introduction:
+
+  "Androix" Controller is an easy-to-programm, educational robotic controller.It
+  is developed by Practical Robotic Institute Austria (As known as PRIA). Located
+  at TGM, a technical Institute in Vienna, Austria.
+
+  Andriox is designed for everybody, who wanted to build their own DIY-Robots,
+  but didn't know where to start with. Andriox allows users to program their
+  robot without any knowledges. You can simply program the robot using any kind
+  of smartphones. There are graphical API for Androix running on Android, IOS,
+  Windows, OSX or even Linux.
+
+  The basic Idea of the "Androix-Industry" project is to use this simple controller
+  to controll Industrial-level Motors/Axis. Which allows the Instructors to have
+  a low-cost, stable, expansional to achieve the Idea of "Industrial 3.0".
+
+###############################################################################
+Setup:
+
+  In this project, we are using NEMA Stepper motors to test our idea. NEMA
+  Stepper-motor series is one of the most popular Motors for both pre-industrial
+  uses and professional levels. It is very accurate and powerful, but at the same
+  time easy to control.
+
+  We chose two kind of NEMA Motors here:
+    - 1x NEMA 23 (QSH 5718-76-28-189)
+    - 1X NEMA 34 (QSH 8618-96-55-700)
+
+  Both motor above are standard motors, which has been used in Robotic Industry
+  or even as light-weight machine axis. NEMA 23/34 operates normally between
+  12-24 V and requiers a extern power supply. But to be able to control the motor,
+  we would need a extension module between the Androix Controller and the actual
+  physical Motor.
+
+  Here is the Controll flow(foto):
+
+                  ########################################
+                  #                                      #
+                  #                                      #
+                  #                                      #
+                  #                                      #
+                  #                                      #
+                  ########################################
+
+###############################################################################
+Extension-Module:
+
+  NEMA 23 specification:
+      ∙ Type: Bipolar Stepper motor (4 wires)
+      ∙ Ideal Voltage: 12-24 V (Vmax: 75V)
+      ∙ Stall current: 2.8A (Max)
+
+  NEMA 34 specification:
+      ∙ Type: Bipolar Stepper motor (4 wires)
+      ∙ Ideal Voltage: 24-36 V (Vmax: 75V)
+      ∙ Stall current: 5.5A (Max)
+
+  Control Module requirements:
+      ∙ Stable
+      ∙ Accuration
+      ∙ Read serial commands from Androix
+      ∙ Minimal Connections between the Controller and Androix
+      ∙ Supply Motor with ideal voltage/current
+      ∙ Scalability
+
+###############################################################################
+Andoix-Programming:
+
+###############################################################################
+Stability:
+
+###############################################################################
+Cost:
+
+###############################################################################
+Expansibility:
+
+###############################################################################
+Summary:
+
+###############################################################################
+Contact:
